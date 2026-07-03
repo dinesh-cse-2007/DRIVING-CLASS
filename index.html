@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving School | Muralikrishan Driving School</title>
+    <style>
+        /* --- CSS STYLES --- */
+        
+         :root {
+            --primary: #1e3a8a;
+            /* Deep Blue */
+            --secondary: #f59e0b;
+            /* Amber/Yellow */
+            --text-dark: #1f2937;
+            --text-light: #f9fafb;
+            --bg-light: #f3f4f6;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+        /* Navigation */
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn-nav {
+            background-color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            color: white !important;
+        }
+        
+        .btn-nav:hover {
+            background-color: #d97706;
+        }
+        /* Hero Section */
+        
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-main {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .btn-main:hover {
+            background-color: #d97706;
+            transform: translateY(-2px);
+        }
+        /* Sections General */
+        
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        /* Services Grid */
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            border-top: 5px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        /* Pricing Packages */
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .price-card {
+            border: 2px solid var(--bg-light);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            background-color: white;
+        }
+        
+        .price-card.featured {
+            border-color: var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.8rem;
+            border-radius: 20px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .price-features li {
+            margin-bottom: 0.5rem;
+        }
+        /* Contact Section */
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            background-color: var(--bg-light);
+            padding: 3rem;
+            border-radius: 10px;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        /* Footer */
+        
+        footer {
+            background-color: #111827;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        /* Responsive Breakpoint */
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            /* Simplified for template */
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .price-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Driving<span>Class</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Packages</a></li>
+                <li><a href="#contact" class="btn-nav">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h1>MURALI KRISHNA DRIVING SCHOOL</h1>
+            <p>Professional, patient, and certified driving instructors dedicated to making you a safe driver for life.</p>
+            <a href="#contact" class="btn-main">Get Started Today</a>
+        </div>
+    </div>
+
+    <section id="services">
+        <h2 class="section-title">Our Driving Courses</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Beginner Class</h3>
+                <p>Perfect for first-time drivers. Learn basic controls, road rules, and foundational safety habits.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⏱️</div>
+                <h3>Master Class</h3>
+                <p>Designed for licensed drivers looking to polish their skills or regain driving confidence.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2 class="section-title">Driving Class Packages</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter Pack</h3>
+                <div class="price">5000</div>
+                <ul class="price-features">
+                    <li>3 Hours On-Road Training</li>
+                    <li>Dual-Controlled Vehicles</li>
+                    <li>Certificate of Completion</li>
+                </ul>
+                <button class="btn-main" onclick="selectPackage('Starter Pack')">Choose Plan</button>
+            </div>
+            <div class="price-card featured">
+                <span class="badge">Popular</span>
+                <h3>Standard Pack</h3>
+                <div class="price">6000</div>
+                <ul class="price-features">
+                    <li>8 Hours On-Road Training</li>
+                    <li>Defensive Driving Secrets</li>
+                    <li>DMV Test Vehicle Rental</li>
+                </ul>
+                <button class="btn-main" onclick="selectPackage('Standard Pack')">Choose Plan</button>
+            </div>
+            <div class="price-card">
+                <h3>Pro Driver</h3>
+                <div class="price">7000</div>
+                <ul class="price-features">
+                    <li>15 Hours On-Road Training</li>
+                    <li>Highway & Night Driving</li>
+                    <li>Unlimited Mock Tests</li>
+                </ul>
+                <button class="btn-main" onclick="selectPackage('Pro Driver')">Choose Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Booking Your Class</h2>
+        <div class="contact-container">
+            <div>
+                <h3>Why Choose Driving Class?</h3>
+                <p style="margin: 1rem 0 2rem 0; color:#555;">We provide flexible scheduling, free student pick-up and drop-off, and have a 98% first-time pass rate.</p>
+                <p><strong>📍 Address:</strong> NH 48,Kambar st,Senthamil Nagar,Thiruttani,Tamil Nadu 631209</p>
+                <p><strong>📞 Phone:</strong>9444863207</p>
+                <p><strong>✉️ Email:</strong> muralikrishna@gmail.com</p>
+            </div>
+            <div>
+                <form class="contact-form" id="bookingForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="packageSelect">
+                            <option value="">Select a Course/Package</option>
+                            <option value="Starter Pack">Starter Pack (5000)</option>
+                            <option value="Standard Pack">Standard Pack (6000)</option>
+                            <option value="Pro Driver">Pro Driver (7000)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="Any special requests or questions?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-main">Submit Booking</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DriveClass Driving School. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth Scrolling for Nav Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Function to auto-select package when clicking pricing buttons
+        function selectPackage(packageName) {
+            const dropdown = document.getElementById('packageSelect');
+            dropdown.value = packageName;
+
+            // Scroll smoothly to contact form
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Form Submission Handler
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const selectedPackage = document.getElementById('packageSelect').value || "General Inquiry";
+
+            alert(`Thank you, ${name}! Your request for the ${selectedPackage} has been simulated successfully. We'll reach out soon.`);
+
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
